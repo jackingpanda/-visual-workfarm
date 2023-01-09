@@ -20,7 +20,7 @@ jobs:
           run: node /app/download.js ${{ github.event.inputs.url }}
       
         - name: LS
-          run: cd /data/farm && ls -la
+          run: cd /data && ls -la
           
         - name: Upload to Drive
           run: node /app/upload.js
