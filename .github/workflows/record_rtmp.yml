@@ -1,0 +1,27 @@
+name: Record RTMP Stream
+
+on: [push]
+
+jobs:
+  record_rtmp_job:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out the code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x' # Replace '3.x' with your desired Python version
+
+    - name: Install ffmpeg
+      run: |
+        sudo apt update
+        sudo apt install ffmpeg
+
+    - name: Install dependencies
+      run: pip install -r requirements.txt # Replace 'requirements.txt' with the name of your Python requirements file if you have one
+
+    - name: Run Python script
+      run: python your_python_script.py # Replace 'your_python_script.py' with the actual name of your Python script
